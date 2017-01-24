@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cea804c1-ab58-42dc-affb-194ac5b424ce" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>false</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://hvprodr4xapi.navitaire.com/OperationManager.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OperationManager11.xsd" MetadataType="Schema" ID="9ec6bb60-f928-46c3-bd61-d26ab97df936" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?xsd=xsd8" />
+    <MetadataFile FileName="OperationManager111.xsd" MetadataType="Schema" ID="3b810bc8-8d40-452f-b3e0-8900a84ca578" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?xsd=xsd6" />
+    <MetadataFile FileName="OperationManager1.wsdl" MetadataType="Wsdl" ID="2e65dd20-b498-4c9b-af99-2c5e0e206b83" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?wsdl" />
+    <MetadataFile FileName="OperationManager112.xsd" MetadataType="Schema" ID="9d9ffd2a-2e41-4255-b486-b534144cb8c2" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?xsd=xsd2" />
+    <MetadataFile FileName="OperationManager113.xsd" MetadataType="Schema" ID="479883b7-d752-4b6b-b9df-72d2b6cc5dd5" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?xsd=xsd14" />
+    <MetadataFile FileName="OperationManager114.xsd" MetadataType="Schema" ID="5b3d2d74-58c7-41eb-b02b-fdcb4b57f363" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?xsd=xsd13" />
+    <MetadataFile FileName="OperationManager115.xsd" MetadataType="Schema" ID="836a4f2a-69ea-43b3-8f94-35cccb4c453d" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?xsd=xsd12" />
+    <MetadataFile FileName="OperationManager116.xsd" MetadataType="Schema" ID="956a13e6-ede7-43da-98bc-c08ce3bb4efa" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?xsd=xsd11" />
+    <MetadataFile FileName="OperationManager117.xsd" MetadataType="Schema" ID="bd8a1723-72a9-4c72-ac13-36cfe47062fc" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?xsd=xsd0" />
+    <MetadataFile FileName="OperationManager118.xsd" MetadataType="Schema" ID="126762cc-b3c0-44be-bd87-8c79e842160c" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?xsd=xsd5" />
+    <MetadataFile FileName="OperationManager1.disco" MetadataType="Disco" ID="1dec2758-3b65-4278-9fd6-73ef9fb32625" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?disco" />
+    <MetadataFile FileName="OperationManager119.xsd" MetadataType="Schema" ID="636549e4-4b00-4eb5-9208-997dae0bbd0b" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?xsd=xsd7" />
+    <MetadataFile FileName="OperationManager1110.xsd" MetadataType="Schema" ID="84428e5e-c73a-4bac-a28a-89e0a1ad45c5" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?xsd=xsd1" />
+    <MetadataFile FileName="OperationManager1111.xsd" MetadataType="Schema" ID="f2df2b71-9f46-4e24-94fe-89f5ad07f3fd" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?xsd=xsd3" />
+    <MetadataFile FileName="OperationManager1112.xsd" MetadataType="Schema" ID="45aed98d-bce3-4e59-91ae-8adf7b934bc6" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?xsd=xsd10" />
+    <MetadataFile FileName="OperationManager1113.xsd" MetadataType="Schema" ID="5b5dd4cc-8739-4430-85ec-bfe2b87e2784" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?xsd=xsd9" />
+    <MetadataFile FileName="OperationManager1114.xsd" MetadataType="Schema" ID="52269f4c-136d-4852-8e0b-fdd81b925ad5" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/OperationManager.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

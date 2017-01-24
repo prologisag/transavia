@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="afd0367b-5620-482a-ade6-2586acc740ad" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>false</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://hvprodr4xapi.navitaire.com/ContentManager.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ContentManager8.xsd" MetadataType="Schema" ID="15352846-47a8-4c37-ad63-b9e4f1110588" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd3" />
+    <MetadataFile FileName="ContentManager81.xsd" MetadataType="Schema" ID="02dcf2f1-bde4-4456-8d06-efea9b6d5865" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd7" />
+    <MetadataFile FileName="ContentManager1.disco" MetadataType="Disco" ID="5f26d818-8c0a-46e0-a712-1a1c996e3090" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/ContentManager.svc?disco" />
+    <MetadataFile FileName="ContentManager82.xsd" MetadataType="Schema" ID="da32af23-08ad-4f2b-a007-547a0d2ea4ad" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd10" />
+    <MetadataFile FileName="ContentManager83.xsd" MetadataType="Schema" ID="f95fa338-d11f-4c99-8117-34a74af7f4c7" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd0" />
+    <MetadataFile FileName="ContentManager84.xsd" MetadataType="Schema" ID="87519e9a-65ee-473f-9986-3c0e3f1b9c66" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd4" />
+    <MetadataFile FileName="ContentManager85.xsd" MetadataType="Schema" ID="06a1f84c-bee7-40e8-84b2-bc727483414d" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd11" />
+    <MetadataFile FileName="ContentManager1.wsdl" MetadataType="Wsdl" ID="529b65f0-0856-4b2b-9ec6-958c972942d7" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/ContentManager.svc?wsdl" />
+    <MetadataFile FileName="ContentManager86.xsd" MetadataType="Schema" ID="24dfa843-2214-4a3a-80ea-eb3de90e7693" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd1" />
+    <MetadataFile FileName="ContentManager87.xsd" MetadataType="Schema" ID="1529338d-dfa1-495e-b7da-24e89ff76076" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd5" />
+    <MetadataFile FileName="ContentManager88.xsd" MetadataType="Schema" ID="ec94ef18-a28d-4ad9-9855-509aaf62580a" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd9" />
+    <MetadataFile FileName="ContentManager89.xsd" MetadataType="Schema" ID="daba616e-e82a-453d-8298-586b4f495aae" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd2" />
+    <MetadataFile FileName="ContentManager810.xsd" MetadataType="Schema" ID="ebb92fc1-7b75-4df0-8bce-d80b909c7d23" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd6" />
+    <MetadataFile FileName="ContentManager811.xsd" MetadataType="Schema" ID="83d8bcc5-0f53-4e2d-a114-dc7e39072bb1" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd8" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

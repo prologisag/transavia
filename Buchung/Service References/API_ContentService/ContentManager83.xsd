@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.navitaire.com/WebServices/ServiceContracts/ContentService" elementFormDefault="qualified" targetNamespace="http://schemas.navitaire.com/WebServices/ServiceContracts/ContentService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd2" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Content" />
+  <xs:element name="FindContentsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.navitaire.com/WebServices/DataContracts/Content" minOccurs="0" ref="q1:contentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindContentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.navitaire.com/WebServices/DataContracts/Content" minOccurs="0" ref="q2:ContentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContentRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.navitaire.com/WebServices/DataContracts/Content" minOccurs="0" ref="q3:GetContentReqData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.navitaire.com/WebServices/DataContracts/Content" minOccurs="0" ref="q4:Content" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FareRuleRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.navitaire.com/WebServices/DataContracts/Content" minOccurs="0" ref="q5:fareRuleReqData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFareRuleInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.navitaire.com/WebServices/DataContracts/Content" minOccurs="0" ref="q6:FareRuleInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

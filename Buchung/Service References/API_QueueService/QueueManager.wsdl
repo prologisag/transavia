@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schemas.navitaire.com/WebServices" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="QueueManager" targetNamespace="http://schemas.navitaire.com/WebServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IQueueManager_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://schemas.navitaire.com/WebServices/Imports">
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd2" namespace="http://schemas.navitaire.com/WebServices/ServiceContracts/QueueService" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd4" namespace="http://schemas.navitaire.com/WebServices" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd3" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Queue" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd7" namespace="http://schemas.navitaire.com/WebServices/FaultContracts" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd5" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd6" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd8" namespace="http://www.navitaire.com/Ncl/Validation/ValidationResult" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Navitaire.Ncl.Collections" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd10" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd11" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Voucher" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd12" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Operation" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MoveBookingQueueItemRequest">
+    <wsdl:part xmlns:q1="http://schemas.navitaire.com/WebServices/ServiceContracts/QueueService" name="parameters" element="q1:MoveBookingQueueItemRequest" />
+  </wsdl:message>
+  <wsdl:message name="MoveBookingQueueItemRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_MoveBookingQueueItem_OutputMessage" />
+  <wsdl:message name="FindQueuedBookingsRequest">
+    <wsdl:part xmlns:q2="http://schemas.navitaire.com/WebServices/ServiceContracts/QueueService" name="parameters" element="q2:FindQueuedBookingsByIDRequest" />
+  </wsdl:message>
+  <wsdl:message name="FindQueuedBookingsRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="FindQueuedBookingsResponse">
+    <wsdl:part xmlns:q3="http://schemas.navitaire.com/WebServices/ServiceContracts/QueueService" name="parameters" element="q3:FindQueuedBookingsByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_FindQueuedBookings_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q4:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_FindQueuedBookings_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q5:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_FindQueuedBookings_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q6:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_FindQueuedBookings_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q7:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_FindQueuedBookings_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q8:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_FindQueuedBookings_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q9:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_FindQueuedBookings_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q10:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBookingFromQueueRequest">
+    <wsdl:part xmlns:q11="http://schemas.navitaire.com/WebServices/ServiceContracts/QueueService" name="parameters" element="q11:DeleteBookingFromQueueRequest" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBookingFromQueueRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DeleteBookingFromQueue_OutputMessage" />
+  <wsdl:message name="IQueueManager_DeleteBookingFromQueue_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q12:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DeleteBookingFromQueue_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q13:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DeleteBookingFromQueue_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q14:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DeleteBookingFromQueue_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q15:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DeleteBookingFromQueue_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q16:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DeleteBookingFromQueue_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q17:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DeleteBookingFromQueue_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q18:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="CommitBookingQueueRequest">
+    <wsdl:part xmlns:q19="http://schemas.navitaire.com/WebServices/ServiceContracts/QueueService" name="parameters" element="q19:CommitBookingQueueRequest" />
+  </wsdl:message>
+  <wsdl:message name="CommitBookingQueueRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="CommitBookingQueueResponse">
+    <wsdl:part xmlns:q20="http://schemas.navitaire.com/WebServices/ServiceContracts/QueueService" name="parameters" element="q20:CommitBookingQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_CommitBookingQueue_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q21:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_CommitBookingQueue_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q22:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_CommitBookingQueue_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q23:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_CommitBookingQueue_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q24:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_CommitBookingQueue_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q25:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_CommitBookingQueue_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q26:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_CommitBookingQueue_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q27:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="QueueFlightRequest">
+    <wsdl:part xmlns:q28="http://schemas.navitaire.com/WebServices/ServiceContracts/QueueService" name="parameters" element="q28:QueueFlightRequest" />
+  </wsdl:message>
+  <wsdl:message name="QueueFlightRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="QueueFlightResponse">
+    <wsdl:part xmlns:q29="http://schemas.navitaire.com/WebServices/ServiceContracts/QueueService" name="parameters" element="q29:QueueFlightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_QueueFlight_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q30:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_QueueFlight_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q31:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_QueueFlight_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q32:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_QueueFlight_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q33:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_QueueFlight_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q34:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_QueueFlight_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q35:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_QueueFlight_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q36:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="DequeueNextFlightRequest">
+    <wsdl:part xmlns:q37="http://schemas.navitaire.com/WebServices/ServiceContracts/QueueService" name="parameters" element="q37:DequeueNextFlightRequest" />
+  </wsdl:message>
+  <wsdl:message name="DequeueNextFlightRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="DequeueNextFlightResponse">
+    <wsdl:part xmlns:q38="http://schemas.navitaire.com/WebServices/ServiceContracts/QueueService" name="parameters" element="q38:DequeueNextFlightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DequeueNextFlight_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q39:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DequeueNextFlight_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q40:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DequeueNextFlight_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q41:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DequeueNextFlight_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q42:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DequeueNextFlight_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q43:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DequeueNextFlight_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q44="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q44:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DequeueNextFlight_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q45="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q45:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="DequeueFlightWithSummaryRequest">
+    <wsdl:part xmlns:q46="http://schemas.navitaire.com/WebServices/ServiceContracts/QueueService" name="parameters" element="q46:DequeueFlightWithSummaryRequest" />
+  </wsdl:message>
+  <wsdl:message name="DequeueFlightWithSummaryRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="DequeueFlightWithSummaryResponse">
+    <wsdl:part xmlns:q47="http://schemas.navitaire.com/WebServices/ServiceContracts/QueueService" name="parameters" element="q47:DequeueFlightWithSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DequeueFlightWithSummary_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q48="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q48:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DequeueFlightWithSummary_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q49="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q49:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DequeueFlightWithSummary_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q50="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q50:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DequeueFlightWithSummary_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q51="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q51:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DequeueFlightWithSummary_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q52="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q52:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DequeueFlightWithSummary_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q53="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q53:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="IQueueManager_DequeueFlightWithSummary_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q54="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q54:APIFault" />
+  </wsdl:message>
+  <wsdl:portType name="IQueueManager">
+    <wsdl:operation name="MoveBookingQueueItem">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/MoveBookingQueueItem" name="MoveBookingQueueItemRequest" message="tns:MoveBookingQueueItemRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/MoveBookingQueueItemResponse" message="tns:IQueueManager_MoveBookingQueueItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindQueuedBookings">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/FindQueuedBookings" name="FindQueuedBookingsRequest" message="tns:FindQueuedBookingsRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/FindQueuedBookingsResponse" name="FindQueuedBookingsResponse" message="tns:FindQueuedBookingsResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/FindQueuedBookingsAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IQueueManager_FindQueuedBookings_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/FindQueuedBookingsAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IQueueManager_FindQueuedBookings_APISecurityFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/FindQueuedBookingsAPIFaultFault" name="APIFaultFault" message="tns:IQueueManager_FindQueuedBookings_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/FindQueuedBookingsAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IQueueManager_FindQueuedBookings_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/FindQueuedBookingsAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IQueueManager_FindQueuedBookings_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/FindQueuedBookingsAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IQueueManager_FindQueuedBookings_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/FindQueuedBookingsAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IQueueManager_FindQueuedBookings_APIValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBookingFromQueue">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DeleteBookingFromQueue" name="DeleteBookingFromQueueRequest" message="tns:DeleteBookingFromQueueRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DeleteBookingFromQueueResponse" message="tns:IQueueManager_DeleteBookingFromQueue_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DeleteBookingFromQueueAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IQueueManager_DeleteBookingFromQueue_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DeleteBookingFromQueueAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IQueueManager_DeleteBookingFromQueue_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DeleteBookingFromQueueAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IQueueManager_DeleteBookingFromQueue_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DeleteBookingFromQueueAPIFaultFault" name="APIFaultFault" message="tns:IQueueManager_DeleteBookingFromQueue_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DeleteBookingFromQueueAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IQueueManager_DeleteBookingFromQueue_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DeleteBookingFromQueueAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IQueueManager_DeleteBookingFromQueue_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DeleteBookingFromQueueAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IQueueManager_DeleteBookingFromQueue_APISecurityFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitBookingQueue">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/CommitBookingQueue" name="CommitBookingQueueRequest" message="tns:CommitBookingQueueRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/CommitBookingQueueResponse" name="CommitBookingQueueResponse" message="tns:CommitBookingQueueResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/CommitBookingQueueAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IQueueManager_CommitBookingQueue_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/CommitBookingQueueAPIFaultFault" name="APIFaultFault" message="tns:IQueueManager_CommitBookingQueue_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/CommitBookingQueueAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IQueueManager_CommitBookingQueue_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/CommitBookingQueueAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IQueueManager_CommitBookingQueue_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/CommitBookingQueueAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IQueueManager_CommitBookingQueue_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/CommitBookingQueueAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IQueueManager_CommitBookingQueue_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/CommitBookingQueueAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IQueueManager_CommitBookingQueue_APISecurityFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueueFlight">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/QueueFlight" name="QueueFlightRequest" message="tns:QueueFlightRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/QueueFlightResponse" name="QueueFlightResponse" message="tns:QueueFlightResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/QueueFlightAPIFaultFault" name="APIFaultFault" message="tns:IQueueManager_QueueFlight_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/QueueFlightAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IQueueManager_QueueFlight_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/QueueFlightAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IQueueManager_QueueFlight_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/QueueFlightAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IQueueManager_QueueFlight_APISecurityFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/QueueFlightAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IQueueManager_QueueFlight_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/QueueFlightAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IQueueManager_QueueFlight_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/QueueFlightAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IQueueManager_QueueFlight_APIGeneralFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DequeueNextFlight">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueNextFlight" name="DequeueNextFlightRequest" message="tns:DequeueNextFlightRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueNextFlightResponse" name="DequeueNextFlightResponse" message="tns:DequeueNextFlightResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueNextFlightAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IQueueManager_DequeueNextFlight_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueNextFlightAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IQueueManager_DequeueNextFlight_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueNextFlightAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IQueueManager_DequeueNextFlight_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueNextFlightAPIFaultFault" name="APIFaultFault" message="tns:IQueueManager_DequeueNextFlight_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueNextFlightAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IQueueManager_DequeueNextFlight_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueNextFlightAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IQueueManager_DequeueNextFlight_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueNextFlightAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IQueueManager_DequeueNextFlight_APISecurityFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DequeueFlightWithSummary">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueFlightWithSummary" name="DequeueFlightWithSummaryRequest" message="tns:DequeueFlightWithSummaryRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueFlightWithSummaryResponse" name="DequeueFlightWithSummaryResponse" message="tns:DequeueFlightWithSummaryResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueFlightWithSummaryAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IQueueManager_DequeueFlightWithSummary_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueFlightWithSummaryAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IQueueManager_DequeueFlightWithSummary_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueFlightWithSummaryAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IQueueManager_DequeueFlightWithSummary_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueFlightWithSummaryAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IQueueManager_DequeueFlightWithSummary_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueFlightWithSummaryAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IQueueManager_DequeueFlightWithSummary_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueFlightWithSummaryAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IQueueManager_DequeueFlightWithSummary_APISecurityFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueFlightWithSummaryAPIFaultFault" name="APIFaultFault" message="tns:IQueueManager_DequeueFlightWithSummary_APIFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IQueueManager" type="tns:IQueueManager">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IQueueManager_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MoveBookingQueueItem">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IQueueManager/MoveBookingQueueItem" style="document" />
+      <wsdl:input name="MoveBookingQueueItemRequest">
+        <soap:header message="tns:MoveBookingQueueItemRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:MoveBookingQueueItemRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:MoveBookingQueueItemRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:MoveBookingQueueItemRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindQueuedBookings">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IQueueManager/FindQueuedBookings" style="document" />
+      <wsdl:input name="FindQueuedBookingsRequest">
+        <soap:header message="tns:FindQueuedBookingsRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:FindQueuedBookingsRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:FindQueuedBookingsRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:FindQueuedBookingsRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="FindQueuedBookingsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBookingFromQueue">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IQueueManager/DeleteBookingFromQueue" style="document" />
+      <wsdl:input name="DeleteBookingFromQueueRequest">
+        <soap:header message="tns:DeleteBookingFromQueueRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:DeleteBookingFromQueueRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:DeleteBookingFromQueueRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:DeleteBookingFromQueueRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CommitBookingQueue">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IQueueManager/CommitBookingQueue" style="document" />
+      <wsdl:input name="CommitBookingQueueRequest">
+        <soap:header message="tns:CommitBookingQueueRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:CommitBookingQueueRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:CommitBookingQueueRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:CommitBookingQueueRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CommitBookingQueueResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueueFlight">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IQueueManager/QueueFlight" style="document" />
+      <wsdl:input name="QueueFlightRequest">
+        <soap:header message="tns:QueueFlightRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:QueueFlightRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:QueueFlightRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:QueueFlightRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="QueueFlightResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DequeueNextFlight">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueNextFlight" style="document" />
+      <wsdl:input name="DequeueNextFlightRequest">
+        <soap:header message="tns:DequeueNextFlightRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:DequeueNextFlightRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:DequeueNextFlightRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:DequeueNextFlightRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DequeueNextFlightResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DequeueFlightWithSummary">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IQueueManager/DequeueFlightWithSummary" style="document" />
+      <wsdl:input name="DequeueFlightWithSummaryRequest">
+        <soap:header message="tns:DequeueFlightWithSummaryRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:DequeueFlightWithSummaryRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:DequeueFlightWithSummaryRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:DequeueFlightWithSummaryRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DequeueFlightWithSummaryResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QueueManager">
+    <wsdl:port name="BasicHttpBinding_IQueueManager" binding="tns:BasicHttpBinding_IQueueManager">
+      <soap:address location="https://hvprodr4xapi.navitaire.com/QueueManager.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.navitaire.com/WebServices/DataContracts/Content" elementFormDefault="qualified" targetNamespace="http://schemas.navitaire.com/WebServices/DataContracts/Content" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd3" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common" />
+  <xs:import schemaLocation="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd4" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" />
+  <xs:import schemaLocation="https://hvprodr4xapi.navitaire.com/ContentManager.svc?xsd=xsd11" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Booking" />
+  <xs:complexType name="ContentRequestData">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.navitaire.com/WebServices/DataContracts/Common" base="q1:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="q1:SearchString" />
+          <xs:element xmlns:q2="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="ContentType" type="q2:ContentType" />
+          <xs:element minOccurs="0" name="ContainerID" type="xs:long" />
+          <xs:element minOccurs="0" name="ContentID" type="xs:long" />
+          <xs:element minOccurs="0" name="GetDetails" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ContentRequestData" nillable="true" type="tns:ContentRequestData" />
+  <xs:element name="contentRequest" nillable="true" type="tns:ContentRequestData" />
+  <xs:complexType name="ContentResponseData">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.navitaire.com/WebServices/DataContracts/Common" base="q3:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Contents" nillable="true" type="tns:ArrayOfContent" />
+          <xs:element minOccurs="0" name="OtherServiceInformations" nillable="true" type="q3:ArrayOfOtherServiceInformation" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ContentResponseData" nillable="true" type="tns:ContentResponseData" />
+  <xs:complexType name="ArrayOfContent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Content" nillable="true" type="tns:Content" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContent" nillable="true" type="tns:ArrayOfContent" />
+  <xs:complexType name="Content">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.navitaire.com/WebServices/DataContracts/Common" base="q4:ModifiedMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ContentID" type="xs:long" />
+          <xs:element xmlns:q5="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="ContentType" type="q5:ContentType" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Size" type="xs:long" />
+          <xs:element minOccurs="0" name="CultureCode" nillable="true" type="xs:string" />
+          <xs:element xmlns:q6="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="DataType" type="q6:ContentDataType" />
+          <xs:element minOccurs="0" name="Data" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="CreatedAgentName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedAgentName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Content" nillable="true" type="tns:Content" />
+  <xs:element name="ContentResponse" nillable="true" type="tns:ContentResponseData" />
+  <xs:element name="GetContentReqData" nillable="true" type="tns:ContentRequestData" />
+  <xs:element xmlns:q7="http://schemas.navitaire.com/WebServices/DataContracts/Booking" name="fareRuleReqData" nillable="true" type="q7:FareRuleRequestData" />
+  <xs:complexType name="FareRuleInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:base64Binary" />
+      <xs:element xmlns:q8="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="DataType" type="q8:ContentDataType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FareRuleInfo" nillable="true" type="tns:FareRuleInfo" />
+</xs:schema>

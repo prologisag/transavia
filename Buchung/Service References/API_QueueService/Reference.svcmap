@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ba3f8f29-e7fb-4074-9c4c-6bf16e30d20c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://hvprodr4xapi.navitaire.com/QueueManager.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="QueueManager.xsd" MetadataType="Schema" ID="80d9675a-2d6a-4170-8eef-4e84c0d6d03c" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd2" />
+    <MetadataFile FileName="QueueManager1.xsd" MetadataType="Schema" ID="e3740ae1-c50f-4b21-8ded-831ac7d5497b" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd12" />
+    <MetadataFile FileName="QueueManager2.xsd" MetadataType="Schema" ID="6e3bafc0-38fa-44ef-a6d0-688c37a641a0" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd10" />
+    <MetadataFile FileName="QueueManager3.xsd" MetadataType="Schema" ID="cdd24b4e-5c44-4ccf-8f69-34e34d74b102" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd0" />
+    <MetadataFile FileName="QueueManager4.xsd" MetadataType="Schema" ID="d4d391c8-b480-4afa-a9d5-baf77229753f" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd7" />
+    <MetadataFile FileName="QueueManager5.xsd" MetadataType="Schema" ID="56c8693f-e68a-449c-a7eb-88ce9aa95cf7" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd6" />
+    <MetadataFile FileName="QueueManager6.xsd" MetadataType="Schema" ID="3c4a2a9e-75fe-4704-bae7-20208313052b" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd5" />
+    <MetadataFile FileName="QueueManager.disco" MetadataType="Disco" ID="c989c3f5-31d9-438d-829d-ecda3d8fef19" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/QueueManager.svc?disco" />
+    <MetadataFile FileName="QueueManager7.xsd" MetadataType="Schema" ID="df4c55af-0fd1-4318-998d-61db5c1fb292" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd9" />
+    <MetadataFile FileName="QueueManager8.xsd" MetadataType="Schema" ID="d572c8ef-f45e-4d66-aa52-0b431b8f2a8d" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd3" />
+    <MetadataFile FileName="QueueManager9.xsd" MetadataType="Schema" ID="b4fee2d5-d011-44ae-b87e-8d22df753f09" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd1" />
+    <MetadataFile FileName="QueueManager10.xsd" MetadataType="Schema" ID="9668114e-c18a-4bb4-8271-a3a837994f10" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd4" />
+    <MetadataFile FileName="QueueManager.wsdl" MetadataType="Wsdl" ID="41405308-3ad8-463f-9c8b-8079bb0b9ec3" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/QueueManager.svc?wsdl" />
+    <MetadataFile FileName="QueueManager11.xsd" MetadataType="Schema" ID="6ca236fb-dcfc-4bb1-972d-2a2044895243" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd11" />
+    <MetadataFile FileName="QueueManager12.xsd" MetadataType="Schema" ID="d96ad4f1-7228-470e-9976-5b5cdb6dd1f9" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd8" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

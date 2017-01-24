@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schemas.navitaire.com/WebServices" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VoucherManager" targetNamespace="http://schemas.navitaire.com/WebServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IVoucherManager_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://schemas.navitaire.com/WebServices/Imports">
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/VoucherManager.svc?xsd=xsd0" namespace="http://schemas.navitaire.com/WebServices/ServiceContracts/VoucherService" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/VoucherManager.svc?xsd=xsd5" namespace="http://schemas.navitaire.com/WebServices" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/VoucherManager.svc?xsd=xsd6" namespace="http://schemas.navitaire.com/WebServices/FaultContracts" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/VoucherManager.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/VoucherManager.svc?xsd=xsd2" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Voucher" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/VoucherManager.svc?xsd=xsd3" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/VoucherManager.svc?xsd=xsd4" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/VoucherManager.svc?xsd=xsd7" namespace="http://www.navitaire.com/Ncl/Validation/ValidationResult" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/VoucherManager.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Navitaire.Ncl.Collections" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/VoucherManager.svc?xsd=xsd9" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateVouchersRequest">
+    <wsdl:part xmlns:q1="http://schemas.navitaire.com/WebServices/ServiceContracts/VoucherService" name="parameters" element="q1:CreateVouchersRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateVouchersRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="CreateVouchersResponse">
+    <wsdl:part xmlns:q2="http://schemas.navitaire.com/WebServices/ServiceContracts/VoucherService" name="parameters" element="q2:CreateVouchersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_CreateVouchers_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q3:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_CreateVouchers_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q4:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_CreateVouchers_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q5:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_CreateVouchers_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q6:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_CreateVouchers_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q7:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_CreateVouchers_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q8:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_CreateVouchers_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q9:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="VoidVoucherRequest">
+    <wsdl:part xmlns:q10="http://schemas.navitaire.com/WebServices/ServiceContracts/VoucherService" name="parameters" element="q10:VoidVoucherRequest" />
+  </wsdl:message>
+  <wsdl:message name="VoidVoucherRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_VoidVoucher_OutputMessage" />
+  <wsdl:message name="IVoucherManager_VoidVoucher_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q11:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_VoidVoucher_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q12:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_VoidVoucher_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q13:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_VoidVoucher_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q14:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_VoidVoucher_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q15:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_VoidVoucher_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q16:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_VoidVoucher_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q17:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="ReinstateVoucherRequest">
+    <wsdl:part xmlns:q18="http://schemas.navitaire.com/WebServices/ServiceContracts/VoucherService" name="parameters" element="q18:ReinstateVoucherRequest" />
+  </wsdl:message>
+  <wsdl:message name="ReinstateVoucherRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_ReinstateVoucher_OutputMessage" />
+  <wsdl:message name="IVoucherManager_ReinstateVoucher_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q19:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_ReinstateVoucher_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q20:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_ReinstateVoucher_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q21:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_ReinstateVoucher_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q22:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_ReinstateVoucher_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q23:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_ReinstateVoucher_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q24:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_ReinstateVoucher_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q25:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="FindVouchersRequest">
+    <wsdl:part xmlns:q26="http://schemas.navitaire.com/WebServices/ServiceContracts/VoucherService" name="parameters" element="q26:FindVouchersRequest" />
+  </wsdl:message>
+  <wsdl:message name="FindVouchersRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="FindVouchersResponse">
+    <wsdl:part xmlns:q27="http://schemas.navitaire.com/WebServices/ServiceContracts/VoucherService" name="parameters" element="q27:FindVouchersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_FindVouchers_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q28:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_FindVouchers_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q29:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_FindVouchers_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q30:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_FindVouchers_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q31:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_FindVouchers_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q32:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_FindVouchers_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q33:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_FindVouchers_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q34:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="GetVoucherListByDateRequest">
+    <wsdl:part xmlns:q35="http://schemas.navitaire.com/WebServices/ServiceContracts/VoucherService" name="parameters" element="q35:GetVoucherListByDateRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetVoucherListByDateRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="GetVoucherListByDateResponse">
+    <wsdl:part xmlns:q36="http://schemas.navitaire.com/WebServices/ServiceContracts/VoucherService" name="parameters" element="q36:GetVoucherListByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_GetVoucherListByDate_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q37:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_GetVoucherListByDate_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q38:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_GetVoucherListByDate_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q39:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_GetVoucherListByDate_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q40:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_GetVoucherListByDate_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q41:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_GetVoucherListByDate_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q42:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_GetVoucherListByDate_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q43:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="GetVoucherInfoRequest">
+    <wsdl:part xmlns:q44="http://schemas.navitaire.com/WebServices/ServiceContracts/VoucherService" name="parameters" element="q44:GetVoucherInfoRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetVoucherInfoRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="GetVoucherInfoResponse">
+    <wsdl:part xmlns:q45="http://schemas.navitaire.com/WebServices/ServiceContracts/VoucherService" name="parameters" element="q45:GetVoucherInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_GetVoucherInfo_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q46="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q46:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_GetVoucherInfo_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q47="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q47:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_GetVoucherInfo_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q48="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q48:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_GetVoucherInfo_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q49="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q49:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_GetVoucherInfo_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q50="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q50:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_GetVoucherInfo_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q51="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q51:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="IVoucherManager_GetVoucherInfo_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q52="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q52:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:portType name="IVoucherManager">
+    <wsdl:operation name="CreateVouchers">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/CreateVouchers" name="CreateVouchersRequest" message="tns:CreateVouchersRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/CreateVouchersResponse" name="CreateVouchersResponse" message="tns:CreateVouchersResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/CreateVouchersAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IVoucherManager_CreateVouchers_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/CreateVouchersAPIFaultFault" name="APIFaultFault" message="tns:IVoucherManager_CreateVouchers_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/CreateVouchersAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IVoucherManager_CreateVouchers_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/CreateVouchersAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IVoucherManager_CreateVouchers_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/CreateVouchersAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IVoucherManager_CreateVouchers_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/CreateVouchersAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IVoucherManager_CreateVouchers_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/CreateVouchersAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IVoucherManager_CreateVouchers_APISecurityFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VoidVoucher">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/VoidVoucher" name="VoidVoucherRequest" message="tns:VoidVoucherRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/VoidVoucherResponse" message="tns:IVoucherManager_VoidVoucher_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/VoidVoucherAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IVoucherManager_VoidVoucher_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/VoidVoucherAPIFaultFault" name="APIFaultFault" message="tns:IVoucherManager_VoidVoucher_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/VoidVoucherAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IVoucherManager_VoidVoucher_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/VoidVoucherAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IVoucherManager_VoidVoucher_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/VoidVoucherAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IVoucherManager_VoidVoucher_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/VoidVoucherAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IVoucherManager_VoidVoucher_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/VoidVoucherAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IVoucherManager_VoidVoucher_APISecurityFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReinstateVoucher">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/ReinstateVoucher" name="ReinstateVoucherRequest" message="tns:ReinstateVoucherRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/ReinstateVoucherResponse" message="tns:IVoucherManager_ReinstateVoucher_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/ReinstateVoucherAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IVoucherManager_ReinstateVoucher_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/ReinstateVoucherAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IVoucherManager_ReinstateVoucher_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/ReinstateVoucherAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IVoucherManager_ReinstateVoucher_APISecurityFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/ReinstateVoucherAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IVoucherManager_ReinstateVoucher_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/ReinstateVoucherAPIFaultFault" name="APIFaultFault" message="tns:IVoucherManager_ReinstateVoucher_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/ReinstateVoucherAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IVoucherManager_ReinstateVoucher_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/ReinstateVoucherAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IVoucherManager_ReinstateVoucher_APICriticalFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindVouchers">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/FindVouchers" name="FindVouchersRequest" message="tns:FindVouchersRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/FindVouchersResponse" name="FindVouchersResponse" message="tns:FindVouchersResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/FindVouchersAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IVoucherManager_FindVouchers_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/FindVouchersAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IVoucherManager_FindVouchers_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/FindVouchersAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IVoucherManager_FindVouchers_APISecurityFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/FindVouchersAPIFaultFault" name="APIFaultFault" message="tns:IVoucherManager_FindVouchers_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/FindVouchersAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IVoucherManager_FindVouchers_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/FindVouchersAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IVoucherManager_FindVouchers_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/FindVouchersAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IVoucherManager_FindVouchers_APIWarningFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVoucherListByDate">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherListByDate" name="GetVoucherListByDateRequest" message="tns:GetVoucherListByDateRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherListByDateResponse" name="GetVoucherListByDateResponse" message="tns:GetVoucherListByDateResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherListByDateAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IVoucherManager_GetVoucherListByDate_APISecurityFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherListByDateAPIFaultFault" name="APIFaultFault" message="tns:IVoucherManager_GetVoucherListByDate_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherListByDateAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IVoucherManager_GetVoucherListByDate_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherListByDateAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IVoucherManager_GetVoucherListByDate_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherListByDateAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IVoucherManager_GetVoucherListByDate_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherListByDateAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IVoucherManager_GetVoucherListByDate_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherListByDateAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IVoucherManager_GetVoucherListByDate_APIUnhandledServerFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVoucherInfo">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherInfo" name="GetVoucherInfoRequest" message="tns:GetVoucherInfoRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherInfoResponse" name="GetVoucherInfoResponse" message="tns:GetVoucherInfoResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherInfoAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IVoucherManager_GetVoucherInfo_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherInfoAPIFaultFault" name="APIFaultFault" message="tns:IVoucherManager_GetVoucherInfo_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherInfoAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IVoucherManager_GetVoucherInfo_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherInfoAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IVoucherManager_GetVoucherInfo_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherInfoAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IVoucherManager_GetVoucherInfo_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherInfoAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IVoucherManager_GetVoucherInfo_APISecurityFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherInfoAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IVoucherManager_GetVoucherInfo_APIUnhandledServerFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IVoucherManager" type="tns:IVoucherManager">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IVoucherManager_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateVouchers">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IVoucherManager/CreateVouchers" style="document" />
+      <wsdl:input name="CreateVouchersRequest">
+        <soap:header message="tns:CreateVouchersRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:CreateVouchersRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:CreateVouchersRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:CreateVouchersRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateVouchersResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="VoidVoucher">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IVoucherManager/VoidVoucher" style="document" />
+      <wsdl:input name="VoidVoucherRequest">
+        <soap:header message="tns:VoidVoucherRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:VoidVoucherRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:VoidVoucherRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:VoidVoucherRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReinstateVoucher">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IVoucherManager/ReinstateVoucher" style="document" />
+      <wsdl:input name="ReinstateVoucherRequest">
+        <soap:header message="tns:ReinstateVoucherRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:ReinstateVoucherRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:ReinstateVoucherRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:ReinstateVoucherRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindVouchers">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IVoucherManager/FindVouchers" style="document" />
+      <wsdl:input name="FindVouchersRequest">
+        <soap:header message="tns:FindVouchersRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:FindVouchersRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:FindVouchersRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:FindVouchersRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="FindVouchersResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetVoucherListByDate">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherListByDate" style="document" />
+      <wsdl:input name="GetVoucherListByDateRequest">
+        <soap:header message="tns:GetVoucherListByDateRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:GetVoucherListByDateRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:GetVoucherListByDateRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:GetVoucherListByDateRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetVoucherListByDateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetVoucherInfo">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IVoucherManager/GetVoucherInfo" style="document" />
+      <wsdl:input name="GetVoucherInfoRequest">
+        <soap:header message="tns:GetVoucherInfoRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:GetVoucherInfoRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:GetVoucherInfoRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:GetVoucherInfoRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetVoucherInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VoucherManager">
+    <wsdl:port name="BasicHttpBinding_IVoucherManager" binding="tns:BasicHttpBinding_IVoucherManager">
+      <soap:address location="https://hvprodr4xapi.navitaire.com/VoucherManager.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

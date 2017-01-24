@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="76dd06d0-34fb-43a4-ac9e-2dc2f6bd80e4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>false</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://hvprodr4xapi.navitaire.com/BookingManager.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BookingManager.xsd" MetadataType="Schema" ID="d772dd1a-4106-4d15-9db0-62f29c441421" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd13" />
+    <MetadataFile FileName="BookingManager1.xsd" MetadataType="Schema" ID="006708f1-23d8-4183-9350-44a93ceb952c" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd2" />
+    <MetadataFile FileName="BookingManager2.xsd" MetadataType="Schema" ID="2896c4e9-d038-4a64-bf34-d8410eac302b" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd6" />
+    <MetadataFile FileName="BookingManager.wsdl" MetadataType="Wsdl" ID="5e576a32-2027-4c18-afa9-a22b3dd951be" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?wsdl" />
+    <MetadataFile FileName="BookingManager3.xsd" MetadataType="Schema" ID="5f0e1071-dedd-416f-8221-ec4e051d2958" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd11" />
+    <MetadataFile FileName="BookingManager4.xsd" MetadataType="Schema" ID="545968bc-9aab-4e59-8d28-36b270b758aa" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd3" />
+    <MetadataFile FileName="BookingManager5.xsd" MetadataType="Schema" ID="cf0a9035-b1b0-407d-b537-02842571ddbb" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd7" />
+    <MetadataFile FileName="BookingManager6.xsd" MetadataType="Schema" ID="19143d4f-3728-40d5-bfaa-7b97ef8916f2" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd9" />
+    <MetadataFile FileName="BookingManager7.xsd" MetadataType="Schema" ID="d6e89b61-62c0-4b03-bc4f-69971f6d88d2" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd0" />
+    <MetadataFile FileName="BookingManager8.xsd" MetadataType="Schema" ID="1177561d-a790-499c-9518-a9a9315040e1" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd4" />
+    <MetadataFile FileName="BookingManager9.xsd" MetadataType="Schema" ID="4089d5d8-35c9-40c9-92e3-64b14aee1e6b" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd8" />
+    <MetadataFile FileName="BookingManager10.xsd" MetadataType="Schema" ID="dd90ad24-4012-420e-9576-ff91bccd627d" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd12" />
+    <MetadataFile FileName="BookingManager11.xsd" MetadataType="Schema" ID="79683918-e576-4b0c-834b-2205f0313f53" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd10" />
+    <MetadataFile FileName="BookingManager12.xsd" MetadataType="Schema" ID="a3d3a49d-8a68-476d-b4f3-1b18d6b76522" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd1" />
+    <MetadataFile FileName="BookingManager13.xsd" MetadataType="Schema" ID="dbe4df8b-c3c4-40cc-8a41-4792a84910a1" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd5" />
+    <MetadataFile FileName="BookingManager.disco" MetadataType="Disco" ID="360a7d98-726e-4670-88b7-2e2c75f21555" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/BookingManager.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.navitaire.com/WebServices/DataContracts/Schedule" elementFormDefault="qualified" targetNamespace="http://schemas.navitaire.com/WebServices/DataContracts/Schedule" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?xsd=xsd3" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" />
+  <xs:import schemaLocation="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?xsd=xsd4" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common" />
+  <xs:complexType name="BuildAURequestData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="DOW" type="q1:DOW" />
+      <xs:element minOccurs="0" name="BuildAUType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendAVSMessages" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BuildAUFlightSpecifications" nillable="true" type="tns:ArrayOfBuildAUFlightSpecification" />
+      <xs:element minOccurs="0" name="BuildAUClassSpecifications" nillable="true" type="tns:ArrayOfBuildAUClassSpecification" />
+      <xs:element minOccurs="0" name="BuildAUNestSpecifications" nillable="true" type="tns:ArrayOfBuildAUNestSpecification" />
+      <xs:element minOccurs="0" name="BuildAULegSpecifications" nillable="true" type="tns:ArrayOfBuildAULegSpecification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BuildAURequestData" nillable="true" type="tns:BuildAURequestData" />
+  <xs:complexType name="ArrayOfBuildAUFlightSpecification">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BuildAUFlightSpecification" nillable="true" type="tns:BuildAUFlightSpecification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBuildAUFlightSpecification" nillable="true" type="tns:ArrayOfBuildAUFlightSpecification" />
+  <xs:complexType name="BuildAUFlightSpecification">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.navitaire.com/WebServices/DataContracts/Common" minOccurs="0" name="FlightDesignator" nillable="true" type="q2:FlightDesignator" />
+      <xs:element minOccurs="0" name="DepartureStation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalStation" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BuildAUFlightSpecification" nillable="true" type="tns:BuildAUFlightSpecification" />
+  <xs:complexType name="ArrayOfBuildAUClassSpecification">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BuildAUClassSpecification" nillable="true" type="tns:BuildAUClassSpecification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBuildAUClassSpecification" nillable="true" type="tns:ArrayOfBuildAUClassSpecification" />
+  <xs:complexType name="BuildAUClassSpecification">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClassOfService" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClassType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClassNest" type="xs:short" />
+      <xs:element minOccurs="0" name="ClassRank" type="xs:short" />
+      <xs:element minOccurs="0" name="ClassAU" type="xs:short" />
+      <xs:element minOccurs="0" name="ClassAllotted" type="xs:short" />
+      <xs:element minOccurs="0" name="LatestAdvRes" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BuildAUClassSpecification" nillable="true" type="tns:BuildAUClassSpecification" />
+  <xs:complexType name="ArrayOfBuildAUNestSpecification">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BuildAUNestSpecification" nillable="true" type="tns:BuildAUNestSpecification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBuildAUNestSpecification" nillable="true" type="tns:ArrayOfBuildAUNestSpecification" />
+  <xs:complexType name="BuildAUNestSpecification">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClassNest" type="xs:short" />
+      <xs:element minOccurs="0" name="NestLid" type="xs:short" />
+      <xs:element minOccurs="0" name="NestAdjustedCapacity" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BuildAUNestSpecification" nillable="true" type="tns:BuildAUNestSpecification" />
+  <xs:complexType name="ArrayOfBuildAULegSpecification">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BuildAULegSpecification" nillable="true" type="tns:BuildAULegSpecification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBuildAULegSpecification" nillable="true" type="tns:ArrayOfBuildAULegSpecification" />
+  <xs:complexType name="BuildAULegSpecification">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="BuildAULegStatus" type="q3:BuildAULegStatus" />
+      <xs:element minOccurs="0" name="LegLid" type="xs:short" />
+      <xs:element minOccurs="0" name="LegAdjustedCapacity" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BuildAULegSpecification" nillable="true" type="tns:BuildAULegSpecification" />
+  <xs:element name="buildAUReqData" nillable="true" type="tns:BuildAURequestData" />
+  <xs:complexType name="BuildAUResponseData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchedInventoryCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SuccessfulUpdateCount" type="xs:int" />
+      <xs:element minOccurs="0" name="UnchangedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="NotFoundCount" type="xs:int" />
+      <xs:element minOccurs="0" name="UnsuccessfulCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ClassSuccessfulUpdateCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ClassUnchangedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ClassNotFoundCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ClassUnsuccessfulCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BuildAUResponseData" nillable="true" type="tns:BuildAUResponseData" />
+  <xs:complexType name="PropertyTypeRequest">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="Active" type="q4:SearchCondition" />
+      <xs:element xmlns:q5="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="CompartmentProperty" type="q5:SearchCondition" />
+      <xs:element xmlns:q6="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="EquipmentProperty" type="q6:SearchCondition" />
+      <xs:element xmlns:q7="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="InventoryProperty" type="q7:SearchCondition" />
+      <xs:element xmlns:q8="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="MandatoryCategories" type="q8:EquipmentCategory" />
+      <xs:element xmlns:q9="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="MarketingProperty" type="q9:SearchCondition" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q10="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="OptionalCategories" type="q10:EquipmentCategory" />
+      <xs:element xmlns:q11="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="PhysicalProperty" type="q11:SearchCondition" />
+      <xs:element minOccurs="0" name="PropertyTypeCode" nillable="true" type="xs:string" />
+      <xs:element xmlns:q12="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="Searchable" type="q12:SearchCondition" />
+      <xs:element xmlns:q13="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="System" type="q13:SearchCondition" />
+      <xs:element xmlns:q14="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="UnitProperty" type="q14:SearchCondition" />
+      <xs:element minOccurs="0" name="CultureCode" nillable="true" type="xs:string" />
+      <xs:element xmlns:q15="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="Default" type="q15:SearchCondition" />
+      <xs:element xmlns:q16="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="Optimal" type="q16:SearchCondition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PropertyTypeRequest" nillable="true" type="tns:PropertyTypeRequest" />
+  <xs:complexType name="ArrayOfPropertyType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PropertyType" nillable="true" type="tns:PropertyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPropertyType" nillable="true" type="tns:ArrayOfPropertyType" />
+  <xs:complexType name="PropertyType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CompartmentProperty" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CreatedUserID" type="xs:long" />
+      <xs:element minOccurs="0" name="CreatedUTC" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DisplayPriority" type="xs:short" />
+      <xs:element minOccurs="0" name="EquipmentProperty" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IconContentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InventoryProperty" type="xs:boolean" />
+      <xs:element xmlns:q17="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="MandatoryCategories" type="q17:EquipmentCategory" />
+      <xs:element minOccurs="0" name="MarketingProperty" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ModifiedUserID" type="xs:long" />
+      <xs:element minOccurs="0" name="ModifiedUTC" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q18="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="OptionalCategories" type="q18:EquipmentCategory" />
+      <xs:element minOccurs="0" name="PhysicalProperty" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PropertyList" nillable="true" type="tns:ArrayOfProperty" />
+      <xs:element minOccurs="0" name="PropertyTypeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Searchable" type="xs:boolean" />
+      <xs:element xmlns:q19="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="State" type="q19:MessageState" />
+      <xs:element minOccurs="0" name="System" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TerminalDisplay" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TerminalDisplayPriority" type="xs:short" />
+      <xs:element minOccurs="0" name="UnitProperty" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ValueMax" type="xs:short" />
+      <xs:element minOccurs="0" name="ValueMin" type="xs:short" />
+      <xs:element xmlns:q20="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="ValueType" type="q20:PropertyValueType" />
+      <xs:element minOccurs="0" name="Default" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Optimal" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PropertyType" nillable="true" type="tns:PropertyType" />
+  <xs:complexType name="ArrayOfProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Property" nillable="true" type="tns:Property" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProperty" nillable="true" type="tns:ArrayOfProperty" />
+  <xs:complexType name="Property">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CreatedUserID" type="xs:long" />
+      <xs:element minOccurs="0" name="CreatedUTC" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IconContentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedUserID" type="xs:long" />
+      <xs:element minOccurs="0" name="ModifiedUTC" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertySSRPermissions" nillable="true" type="tns:ArrayOfPropertySSRPermission" />
+      <xs:element minOccurs="0" name="Sequence" type="xs:short" />
+      <xs:element xmlns:q21="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="State" type="q21:MessageState" />
+      <xs:element minOccurs="0" name="TerminalDisplay" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Default" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Optimal" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Property" nillable="true" type="tns:Property" />
+  <xs:complexType name="ArrayOfPropertySSRPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PropertySSRPermission" nillable="true" type="tns:PropertySSRPermission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPropertySSRPermission" nillable="true" type="tns:ArrayOfPropertySSRPermission" />
+  <xs:complexType name="PropertySSRPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedUserID" type="xs:long" />
+      <xs:element minOccurs="0" name="CreatedUTC" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedUserID" type="xs:long" />
+      <xs:element minOccurs="0" name="ModifiedUTC" type="xs:dateTime" />
+      <xs:element xmlns:q22="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="Permission" type="q22:SSRPermission" />
+      <xs:element minOccurs="0" name="SSRCode" nillable="true" type="xs:string" />
+      <xs:element xmlns:q23="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="State" type="q23:MessageState" />
+      <xs:element minOccurs="0" name="SSRCodeType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PropertySSRPermission" nillable="true" type="tns:PropertySSRPermission" />
+  <xs:element name="PropertyTypes" nillable="true" type="tns:ArrayOfPropertyType" />
+  <xs:complexType name="BlockAllActivitiesRequestData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CarrierCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlightNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpSuffix" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TravelDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Block" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DepartureStation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalStation" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BlockAllActivitiesRequestData" nillable="true" type="tns:BlockAllActivitiesRequestData" />
+  <xs:element name="blockAllActivitiesReqData" nillable="true" type="tns:BlockAllActivitiesRequestData" />
+  <xs:element name="Success" type="xs:boolean" />
+</xs:schema>

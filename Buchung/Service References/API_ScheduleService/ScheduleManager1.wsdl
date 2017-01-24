@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schemas.navitaire.com/WebServices" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ScheduleManager" targetNamespace="http://schemas.navitaire.com/WebServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IScheduleManager_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://schemas.navitaire.com/WebServices/Imports">
+      <xsd:import schemaLocation="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?xsd=xsd0" namespace="http://schemas.navitaire.com/WebServices/ServiceContracts/ScheduleService" />
+      <xsd:import schemaLocation="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?xsd=xsd5" namespace="http://schemas.navitaire.com/WebServices" />
+      <xsd:import schemaLocation="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?xsd=xsd2" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Schedule" />
+      <xsd:import schemaLocation="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?xsd=xsd3" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" />
+      <xsd:import schemaLocation="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?xsd=xsd4" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="BuildAURequest">
+    <wsdl:part xmlns:q1="http://schemas.navitaire.com/WebServices/ServiceContracts/ScheduleService" name="parameters" element="q1:BuildAURequest" />
+  </wsdl:message>
+  <wsdl:message name="BuildAURequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="BuildAUResponse">
+    <wsdl:part xmlns:q2="http://schemas.navitaire.com/WebServices/ServiceContracts/ScheduleService" name="parameters" element="q2:BuildAUResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyTypeListRequest">
+    <wsdl:part xmlns:q3="http://schemas.navitaire.com/WebServices/DataContracts/Schedule" name="PropertyTypeRequest" element="q3:PropertyTypeRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyTypeListRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyTypeListResponse">
+    <wsdl:part xmlns:q4="http://schemas.navitaire.com/WebServices/DataContracts/Schedule" name="PropertyTypes" element="q4:PropertyTypes" />
+  </wsdl:message>
+  <wsdl:message name="BlockAllActivitiesRequest">
+    <wsdl:part xmlns:q5="http://schemas.navitaire.com/WebServices/DataContracts/Schedule" name="blockAllActivitiesReqData" element="q5:blockAllActivitiesReqData" />
+  </wsdl:message>
+  <wsdl:message name="BlockAllActivitiesRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="BlockAllActivitiesResponse">
+    <wsdl:part xmlns:q6="http://schemas.navitaire.com/WebServices/DataContracts/Schedule" name="Success" element="q6:Success" />
+  </wsdl:message>
+  <wsdl:portType name="IScheduleManager">
+    <wsdl:operation name="BuildAU">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IScheduleManager/BuildAU" name="BuildAURequest" message="tns:BuildAURequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IScheduleManager/BuildAUResponse" name="BuildAUResponse" message="tns:BuildAUResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyTypeList">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IScheduleManager/GetPropertyTypeList" name="GetPropertyTypeListRequest" message="tns:GetPropertyTypeListRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IScheduleManager/GetPropertyTypeListResponse" name="GetPropertyTypeListResponse" message="tns:GetPropertyTypeListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="BlockAllActivities">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IScheduleManager/BlockAllActivities" name="BlockAllActivitiesRequest" message="tns:BlockAllActivitiesRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IScheduleManager/BlockAllActivitiesResponse" name="BlockAllActivitiesResponse" message="tns:BlockAllActivitiesResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IScheduleManager" type="tns:IScheduleManager">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IScheduleManager_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuildAU">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IScheduleManager/BuildAU" style="document" />
+      <wsdl:input name="BuildAURequest">
+        <soap:header message="tns:BuildAURequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:BuildAURequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="BuildAUResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyTypeList">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IScheduleManager/GetPropertyTypeList" style="document" />
+      <wsdl:input name="GetPropertyTypeListRequest">
+        <soap:header message="tns:GetPropertyTypeListRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:GetPropertyTypeListRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPropertyTypeListResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BlockAllActivities">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IScheduleManager/BlockAllActivities" style="document" />
+      <wsdl:input name="BlockAllActivitiesRequest">
+        <soap:header message="tns:BlockAllActivitiesRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:BlockAllActivitiesRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="BlockAllActivitiesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ScheduleManager">
+    <wsdl:port name="BasicHttpBinding_IScheduleManager" binding="tns:BasicHttpBinding_IScheduleManager">
+      <soap:address location="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

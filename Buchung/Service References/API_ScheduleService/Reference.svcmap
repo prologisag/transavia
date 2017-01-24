@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fb246ead-c1cc-4a43-8be4-be6fad4e72be" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ScheduleManager6.xsd" MetadataType="Schema" ID="812f2f73-e1f4-4625-a48a-1d40d0a48bfc" SourceId="1" SourceUrl="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?xsd=xsd4" />
+    <MetadataFile FileName="ScheduleManager61.xsd" MetadataType="Schema" ID="4acc8f53-9de0-42de-b60f-d5a4941c2e43" SourceId="1" SourceUrl="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?xsd=xsd3" />
+    <MetadataFile FileName="ScheduleManager62.xsd" MetadataType="Schema" ID="3dade6b9-ab62-48f6-916b-857224977eaa" SourceId="1" SourceUrl="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?xsd=xsd1" />
+    <MetadataFile FileName="ScheduleManager63.xsd" MetadataType="Schema" ID="805964cf-8f7e-4496-ab65-aa77db295d31" SourceId="1" SourceUrl="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?xsd=xsd0" />
+    <MetadataFile FileName="ScheduleManager64.xsd" MetadataType="Schema" ID="85b331eb-1b25-4e8e-afca-e7f420448e45" SourceId="1" SourceUrl="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?xsd=xsd2" />
+    <MetadataFile FileName="ScheduleManager65.xsd" MetadataType="Schema" ID="6fcb7c61-b8aa-4301-b214-65f7942de772" SourceId="1" SourceUrl="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?xsd=xsd5" />
+    <MetadataFile FileName="ScheduleManager1.wsdl" MetadataType="Wsdl" ID="e01f2c91-ef69-49a7-9403-3e59db3b972c" SourceId="1" SourceUrl="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?wsdl" />
+    <MetadataFile FileName="ScheduleManager1.disco" MetadataType="Disco" ID="0b4f873a-3fd3-4112-a03c-a2fa057e614c" SourceId="1" SourceUrl="https://hvtest2r3xapi.navitaire.com/ScheduleManager.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.navitaire.com/WebServices/DataContracts/Queue" elementFormDefault="qualified" targetNamespace="http://schemas.navitaire.com/WebServices/DataContracts/Queue" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd5" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common" />
+  <xs:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd6" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" />
+  <xs:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd12" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Operation" />
+  <xs:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="MoveBookingQueueItemRequestData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BookingID" type="xs:long" />
+      <xs:element minOccurs="0" name="PassengerID" type="xs:long" />
+      <xs:element minOccurs="0" name="CurrentQueueCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewQueueCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrentQueuePassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewQueuePassword" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoveBookingQueueItemRequestData" nillable="true" type="tns:MoveBookingQueueItemRequestData" />
+  <xs:complexType name="BookingQueueRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.navitaire.com/WebServices/DataContracts/Common" base="q1:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="QueueCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FilterID" type="xs:long" />
+          <xs:element minOccurs="0" name="NotIn" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BeginPriorityDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EndPriorityDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassengerID" type="xs:long" />
+          <xs:element minOccurs="0" name="BookingID" type="xs:long" />
+          <xs:element minOccurs="0" name="AuthorizedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClearNotes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubQueueCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BookingQueueRequest" nillable="true" type="tns:BookingQueueRequest" />
+  <xs:element name="BookingQueueRequestData" nillable="true" type="tns:BookingQueueRequest" />
+  <xs:complexType name="BookingQueueDetailResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.navitaire.com/WebServices/DataContracts/Common" base="q2:ResponseBaseOSI">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BookingQueueDetailItems" nillable="true" type="tns:ArrayOfBookingQueueDetailResponseItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BookingQueueDetailResponse" nillable="true" type="tns:BookingQueueDetailResponse" />
+  <xs:complexType name="ArrayOfBookingQueueDetailResponseItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BookingQueueDetailResponseItem" nillable="true" type="tns:BookingQueueDetailResponseItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBookingQueueDetailResponseItem" nillable="true" type="tns:ArrayOfBookingQueueDetailResponseItem" />
+  <xs:complexType name="BookingQueueDetailResponseItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BookingID" type="xs:long" />
+      <xs:element minOccurs="0" name="RecordLocator" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BookingQueueDetailResponseItem" nillable="true" type="tns:BookingQueueDetailResponseItem" />
+  <xs:complexType name="BookingQueue">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.navitaire.com/WebServices/DataContracts/Common" base="q3:ModifiedMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BookingID" type="xs:long" />
+          <xs:element minOccurs="0" name="PassengerID" type="xs:long" />
+          <xs:element minOccurs="0" name="QueueCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element xmlns:q4="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="CallStatus" type="q4:BookingQueueCallStatus" />
+          <xs:element minOccurs="0" name="CallStatusReset" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PriorityDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DomainCode" nillable="true" type="xs:string" />
+          <xs:element xmlns:q5="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="QueueEventType" type="q5:QueueEventType" />
+          <xs:element minOccurs="0" name="WatchListID" type="xs:long" />
+          <xs:element minOccurs="0" name="RecordLocator" nillable="true" type="xs:string" />
+          <xs:element xmlns:q6="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="QueueRestriction" type="q6:QueueRestriction" />
+          <xs:element minOccurs="0" name="PassengerName" nillable="true" type="q3:Name" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BookingQueueID" type="xs:long" />
+          <xs:element minOccurs="0" name="SegmentKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProcessState" type="xs:int" />
+          <xs:element xmlns:q7="http://schemas.navitaire.com/WebServices/DataContracts/Operation" minOccurs="0" name="BookingQueueDetails" nillable="true" type="q7:ArrayOfBookingQueueDetail" />
+          <xs:element minOccurs="0" name="ProcessStatus" type="xs:int" />
+          <xs:element minOccurs="0" name="SubQueueCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BookingQueue" nillable="true" type="tns:BookingQueue" />
+  <xs:complexType name="QueueFlightRequestData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="QueueCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QueueEventCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubQueueCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PriorityCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PriorityDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FlightKey" nillable="true" type="tns:FlightKey" />
+      <xs:element xmlns:q8="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="ProcessStatus" type="q8:ProcessStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueueFlightRequestData" nillable="true" type="tns:QueueFlightRequestData" />
+  <xs:complexType name="FlightKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CarrierCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlightNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpSuffix" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DepartureStation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalStation" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FlightKey" nillable="true" type="tns:FlightKey" />
+  <xs:complexType name="QueueFlightResponseData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FlightQueueItems" nillable="true" type="tns:ArrayOfFlightQueueItem" />
+      <xs:element xmlns:q9="http://schemas.navitaire.com/WebServices/DataContracts/Common" minOccurs="0" name="OtherServiceInfoList" nillable="true" type="q9:ArrayOfOtherServiceInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueueFlightResponseData" nillable="true" type="tns:QueueFlightResponseData" />
+  <xs:complexType name="ArrayOfFlightQueueItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FlightQueueItem" nillable="true" type="tns:FlightQueueItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFlightQueueItem" nillable="true" type="tns:ArrayOfFlightQueueItem" />
+  <xs:complexType name="FlightQueueItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="QueueCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlightQueueID" type="xs:long" />
+      <xs:element minOccurs="0" name="SubQueueCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlightKey" nillable="true" type="tns:FlightKey" />
+      <xs:element minOccurs="0" name="PriorityCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PriorityDate" type="xs:dateTime" />
+      <xs:element xmlns:q10="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="ProcessStatus" type="q10:ProcessStatus" />
+      <xs:element minOccurs="0" name="CallStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CallStatusReset" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedUserID" type="xs:long" />
+      <xs:element minOccurs="0" name="CreatedUTC" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedUserID" type="xs:long" />
+      <xs:element minOccurs="0" name="ModifiedUTC" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InventoryDeltaDetail" nillable="true" type="tns:InventoryDeltaDetail" />
+      <xs:element minOccurs="0" name="CorrelationID" type="ser:guid" />
+      <xs:element xmlns:q11="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="State" type="q11:MessageState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FlightQueueItem" nillable="true" type="tns:FlightQueueItem" />
+  <xs:complexType name="InventoryDeltaDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionStatusCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalStation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureStation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FlightOperatedByInfoList" nillable="true" type="tns:ArrayOfFlightOperatedByInfo" />
+      <xs:element minOccurs="0" name="FlightStatusList" nillable="true" type="tns:ArrayOfFlightStatus" />
+      <xs:element minOccurs="0" name="FlightDesignatorInfoList" nillable="true" type="tns:ArrayOfFlightDesignatorInfo" />
+      <xs:element minOccurs="0" name="FlightOpTimeList" nillable="true" type="tns:ArrayOfFlightOpTime" />
+      <xs:element minOccurs="0" name="FlightOpInfoList" nillable="true" type="tns:ArrayOfFlightOpInfo" />
+      <xs:element minOccurs="0" name="FlightScheduledTimeList" nillable="true" type="tns:ArrayOfFlightScheduledTime" />
+      <xs:element minOccurs="0" name="FlightEquipmentList" nillable="true" type="tns:ArrayOfFlightEquipment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InventoryDeltaDetail" nillable="true" type="tns:InventoryDeltaDetail" />
+  <xs:complexType name="ArrayOfFlightOperatedByInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FlightOperatedByInfo" nillable="true" type="tns:FlightOperatedByInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFlightOperatedByInfo" nillable="true" type="tns:ArrayOfFlightOperatedByInfo" />
+  <xs:complexType name="FlightOperatedByInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionStatusCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperatedByText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperatingCarrier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperatingFlightNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperatingOpSuffix" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FlightOperatedByInfo" nillable="true" type="tns:FlightOperatedByInfo" />
+  <xs:complexType name="ArrayOfFlightStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FlightStatus" nillable="true" type="tns:FlightStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFlightStatus" nillable="true" type="tns:ArrayOfFlightStatus" />
+  <xs:complexType name="FlightStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionStatusCode" nillable="true" type="xs:string" />
+      <xs:element xmlns:q12="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="LegStatus" type="q12:LegStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FlightStatus" nillable="true" type="tns:FlightStatus" />
+  <xs:complexType name="ArrayOfFlightDesignatorInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FlightDesignatorInfo" nillable="true" type="tns:FlightDesignatorInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFlightDesignatorInfo" nillable="true" type="tns:ArrayOfFlightDesignatorInfo" />
+  <xs:complexType name="FlightDesignatorInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionStatusCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CarrierCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlightNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpSuffix" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FlightDesignatorInfo" nillable="true" type="tns:FlightDesignatorInfo" />
+  <xs:complexType name="ArrayOfFlightOpTime">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FlightOpTime" nillable="true" type="tns:FlightOpTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFlightOpTime" nillable="true" type="tns:ArrayOfFlightOpTime" />
+  <xs:complexType name="FlightOpTime">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionStatusCode" nillable="true" type="xs:string" />
+      <xs:element xmlns:q13="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="OpTimeType" type="q13:OpTimeType" />
+      <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FlightOpTime" nillable="true" type="tns:FlightOpTime" />
+  <xs:complexType name="ArrayOfFlightOpInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FlightOpInfo" nillable="true" type="tns:FlightOpInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFlightOpInfo" nillable="true" type="tns:ArrayOfFlightOpInfo" />
+  <xs:complexType name="FlightOpInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionStatusCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ActualArrvGate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ActualDeptGate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalGate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalNote" nillable="true" type="xs:string" />
+      <xs:element xmlns:q14="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="ArrivalStatus" type="q14:ArrivalStatus" />
+      <xs:element minOccurs="0" name="DepartureGate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureNote" nillable="true" type="xs:string" />
+      <xs:element xmlns:q15="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="DepartureStatus" type="q15:DepartureStatus" />
+      <xs:element minOccurs="0" name="TailNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FlightOpInfo" nillable="true" type="tns:FlightOpInfo" />
+  <xs:complexType name="ArrayOfFlightScheduledTime">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FlightScheduledTime" nillable="true" type="tns:FlightScheduledTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFlightScheduledTime" nillable="true" type="tns:ArrayOfFlightScheduledTime" />
+  <xs:complexType name="FlightScheduledTime">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionStatusCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrvLTV" type="xs:short" />
+      <xs:element minOccurs="0" name="DeptLTV" type="xs:short" />
+      <xs:element minOccurs="0" name="STA" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="STD" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FlightScheduledTime" nillable="true" type="tns:FlightScheduledTime" />
+  <xs:complexType name="ArrayOfFlightEquipment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FlightEquipment" nillable="true" type="tns:FlightEquipment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFlightEquipment" nillable="true" type="tns:ArrayOfFlightEquipment" />
+  <xs:complexType name="FlightEquipment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionStatusCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Capacity" type="xs:int" />
+      <xs:element minOccurs="0" name="EquipmentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EquipmentTypeSuffix" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MarketingCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FlightEquipment" nillable="true" type="tns:FlightEquipment" />
+  <xs:complexType name="DequeueNextFlightRequestData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DequeueCount" type="xs:short" />
+      <xs:element minOccurs="0" name="QueueCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubQueueCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DequeueNextFlightRequestData" nillable="true" type="tns:DequeueNextFlightRequestData" />
+  <xs:complexType name="DequeueNextFlightResponseData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FlightQueueItems" nillable="true" type="tns:ArrayOfFlightQueueItem" />
+      <xs:element xmlns:q16="http://schemas.navitaire.com/WebServices/DataContracts/Common" minOccurs="0" name="OtherServiceInfoList" nillable="true" type="q16:ArrayOfOtherServiceInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DequeueNextFlightResponseData" nillable="true" type="tns:DequeueNextFlightResponseData" />
+  <xs:complexType name="DequeueFlightWithSummaryRequestData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="QueueCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubQueueCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DequeueFlightWithSummaryRequestData" nillable="true" type="tns:DequeueFlightWithSummaryRequestData" />
+  <xs:complexType name="DequeueFlightWithSummaryResponseData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FlightQueueItems" nillable="true" type="tns:ArrayOfFlightQueueItem" />
+      <xs:element xmlns:q17="http://schemas.navitaire.com/WebServices/DataContracts/Operation" minOccurs="0" name="FlightSummary" nillable="true" type="q17:FlightSummary" />
+      <xs:element xmlns:q18="http://schemas.navitaire.com/WebServices/DataContracts/Common" minOccurs="0" name="OtherServiceInfoList" nillable="true" type="q18:ArrayOfOtherServiceInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DequeueFlightWithSummaryResponseData" nillable="true" type="tns:DequeueFlightWithSummaryResponseData" />
+</xs:schema>

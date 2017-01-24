@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schemas.navitaire.com/WebServices" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PersonManager" targetNamespace="http://schemas.navitaire.com/WebServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IPersonManager_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://schemas.navitaire.com/WebServices/Imports">
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd0" namespace="http://schemas.navitaire.com/WebServices/ServiceContracts/PersonService" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd6" namespace="http://schemas.navitaire.com/WebServices" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd7" namespace="http://schemas.navitaire.com/WebServices/FaultContracts" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd2" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Person" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd3" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd4" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd5" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Voucher" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd8" namespace="http://www.navitaire.com/Ncl/Validation/ValidationResult" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Navitaire.Ncl.Collections" />
+      <xsd:import schemaLocation="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd10" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CommitPersonRequest">
+    <wsdl:part xmlns:q1="http://schemas.navitaire.com/WebServices/ServiceContracts/PersonService" name="parameters" element="q1:CommitPersonRequest" />
+  </wsdl:message>
+  <wsdl:message name="CommitPersonRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="CommitPersonResponse">
+    <wsdl:part xmlns:q2="http://schemas.navitaire.com/WebServices/ServiceContracts/PersonService" name="parameters" element="q2:CommitPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_Commit_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q3:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_Commit_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q4:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_Commit_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q5:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_Commit_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q6:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_Commit_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q7:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_Commit_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q8:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_Commit_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q9:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="FindPersonsRequest">
+    <wsdl:part xmlns:q10="http://schemas.navitaire.com/WebServices/ServiceContracts/PersonService" name="parameters" element="q10:FindPersonsRequest" />
+  </wsdl:message>
+  <wsdl:message name="FindPersonsRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="FindPersonsResponse">
+    <wsdl:part xmlns:q11="http://schemas.navitaire.com/WebServices/ServiceContracts/PersonService" name="parameters" element="q11:FindPersonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_FindPersons_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q12:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_FindPersons_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q13:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_FindPersons_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q14:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_FindPersons_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q15:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_FindPersons_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q16:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_FindPersons_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q17:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_FindPersons_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q18:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonRequest">
+    <wsdl:part xmlns:q19="http://schemas.navitaire.com/WebServices/ServiceContracts/PersonService" name="parameters" element="q19:GetPersonRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonResponse">
+    <wsdl:part xmlns:q20="http://schemas.navitaire.com/WebServices/ServiceContracts/PersonService" name="parameters" element="q20:GetPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPerson_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q21:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPerson_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q22:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPerson_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q23:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPerson_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q24:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPerson_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q25:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPerson_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q26:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPerson_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q27:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonInfoListRequest">
+    <wsdl:part xmlns:q28="http://schemas.navitaire.com/WebServices/ServiceContracts/PersonService" name="PersonID" element="q28:PersonID" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonInfoListRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonInfoListResponse">
+    <wsdl:part xmlns:q29="http://schemas.navitaire.com/WebServices/DataContracts/Person" name="PersonInfoLists" element="q29:PersonInfoLists" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPersonInfoList_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q30:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPersonInfoList_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q31:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPersonInfoList_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q32:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPersonInfoList_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q33:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPersonInfoList_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q34:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPersonInfoList_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q35:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPersonInfoList_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q36:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonInfoDataRequest">
+    <wsdl:part xmlns:q37="http://schemas.navitaire.com/WebServices/ServiceContracts/PersonService" name="parameters" element="q37:GetPersonInfoDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonInfoDataRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonInfoDataResponse">
+    <wsdl:part xmlns:q38="http://schemas.navitaire.com/WebServices/ServiceContracts/PersonService" name="parameters" element="q38:GetPersonInfoDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPersonInfoData_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q39:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPersonInfoData_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q40:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPersonInfoData_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q41:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPersonInfoData_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q42:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPersonInfoData_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q43:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPersonInfoData_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q44="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q44:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_GetPersonInfoData_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q45="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q45:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePersonTrustLevelRequest">
+    <wsdl:part xmlns:q46="http://schemas.navitaire.com/WebServices/ServiceContracts/PersonService" name="parameters" element="q46:UpdatePersonTrustLevelRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePersonTrustLevelRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_UpdatePersonTrustLevel_OutputMessage" />
+  <wsdl:message name="IPersonManager_UpdatePersonTrustLevel_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q47="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q47:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_UpdatePersonTrustLevel_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q48="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q48:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_UpdatePersonTrustLevel_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q49="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q49:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_UpdatePersonTrustLevel_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q50="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q50:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_UpdatePersonTrustLevel_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q51="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q51:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_UpdatePersonTrustLevel_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q52="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q52:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="IPersonManager_UpdatePersonTrustLevel_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q53="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q53:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:portType name="IPersonManager">
+    <wsdl:operation name="Commit">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/Commit" name="CommitPersonRequest" message="tns:CommitPersonRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/CommitResponse" name="CommitPersonResponse" message="tns:CommitPersonResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/CommitAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IPersonManager_Commit_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/CommitAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IPersonManager_Commit_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/CommitAPIFaultFault" name="APIFaultFault" message="tns:IPersonManager_Commit_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/CommitAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IPersonManager_Commit_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/CommitAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IPersonManager_Commit_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/CommitAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IPersonManager_Commit_APISecurityFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/CommitAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IPersonManager_Commit_APICriticalFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPersons">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/FindPersons" name="FindPersonsRequest" message="tns:FindPersonsRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/FindPersonsResponse" name="FindPersonsResponse" message="tns:FindPersonsResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/FindPersonsAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IPersonManager_FindPersons_APISecurityFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/FindPersonsAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IPersonManager_FindPersons_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/FindPersonsAPIFaultFault" name="APIFaultFault" message="tns:IPersonManager_FindPersons_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/FindPersonsAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IPersonManager_FindPersons_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/FindPersonsAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IPersonManager_FindPersons_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/FindPersonsAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IPersonManager_FindPersons_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/FindPersonsAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IPersonManager_FindPersons_APIValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerson">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPerson" name="GetPersonRequest" message="tns:GetPersonRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonResponse" name="GetPersonResponse" message="tns:GetPersonResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IPersonManager_GetPerson_APISecurityFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IPersonManager_GetPerson_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonAPIFaultFault" name="APIFaultFault" message="tns:IPersonManager_GetPerson_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IPersonManager_GetPerson_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IPersonManager_GetPerson_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IPersonManager_GetPerson_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IPersonManager_GetPerson_APIValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonInfoList">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoList" name="GetPersonInfoListRequest" message="tns:GetPersonInfoListRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoListResponse" name="GetPersonInfoListResponse" message="tns:GetPersonInfoListResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoListAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IPersonManager_GetPersonInfoList_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoListAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IPersonManager_GetPersonInfoList_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoListAPIFaultFault" name="APIFaultFault" message="tns:IPersonManager_GetPersonInfoList_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoListAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IPersonManager_GetPersonInfoList_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoListAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IPersonManager_GetPersonInfoList_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoListAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IPersonManager_GetPersonInfoList_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoListAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IPersonManager_GetPersonInfoList_APISecurityFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonInfoData">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoData" name="GetPersonInfoDataRequest" message="tns:GetPersonInfoDataRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoDataResponse" name="GetPersonInfoDataResponse" message="tns:GetPersonInfoDataResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoDataAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IPersonManager_GetPersonInfoData_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoDataAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IPersonManager_GetPersonInfoData_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoDataAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IPersonManager_GetPersonInfoData_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoDataAPIFaultFault" name="APIFaultFault" message="tns:IPersonManager_GetPersonInfoData_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoDataAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IPersonManager_GetPersonInfoData_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoDataAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IPersonManager_GetPersonInfoData_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoDataAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IPersonManager_GetPersonInfoData_APISecurityFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePersonTrustLevel">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/UpdatePersonTrustLevel" name="UpdatePersonTrustLevelRequest" message="tns:UpdatePersonTrustLevelRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/UpdatePersonTrustLevelResponse" message="tns:IPersonManager_UpdatePersonTrustLevel_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/UpdatePersonTrustLevelAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:IPersonManager_UpdatePersonTrustLevel_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/UpdatePersonTrustLevelAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:IPersonManager_UpdatePersonTrustLevel_APISecurityFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/UpdatePersonTrustLevelAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:IPersonManager_UpdatePersonTrustLevel_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/UpdatePersonTrustLevelAPIFaultFault" name="APIFaultFault" message="tns:IPersonManager_UpdatePersonTrustLevel_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/UpdatePersonTrustLevelAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:IPersonManager_UpdatePersonTrustLevel_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/UpdatePersonTrustLevelAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:IPersonManager_UpdatePersonTrustLevel_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/IPersonManager/UpdatePersonTrustLevelAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:IPersonManager_UpdatePersonTrustLevel_APIWarningFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPersonManager" type="tns:IPersonManager">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IPersonManager_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Commit">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IPersonManager/Commit" style="document" />
+      <wsdl:input name="CommitPersonRequest">
+        <soap:header message="tns:CommitPersonRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:CommitPersonRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:CommitPersonRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:CommitPersonRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CommitPersonResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindPersons">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IPersonManager/FindPersons" style="document" />
+      <wsdl:input name="FindPersonsRequest">
+        <soap:header message="tns:FindPersonsRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:FindPersonsRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:FindPersonsRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:FindPersonsRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="FindPersonsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPerson">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IPersonManager/GetPerson" style="document" />
+      <wsdl:input name="GetPersonRequest">
+        <soap:header message="tns:GetPersonRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:GetPersonRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:GetPersonRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:GetPersonRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPersonResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonInfoList">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoList" style="document" />
+      <wsdl:input name="GetPersonInfoListRequest">
+        <soap:header message="tns:GetPersonInfoListRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:GetPersonInfoListRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:GetPersonInfoListRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:GetPersonInfoListRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPersonInfoListResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonInfoData">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IPersonManager/GetPersonInfoData" style="document" />
+      <wsdl:input name="GetPersonInfoDataRequest">
+        <soap:header message="tns:GetPersonInfoDataRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:GetPersonInfoDataRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:GetPersonInfoDataRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:GetPersonInfoDataRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPersonInfoDataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePersonTrustLevel">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/IPersonManager/UpdatePersonTrustLevel" style="document" />
+      <wsdl:input name="UpdatePersonTrustLevelRequest">
+        <soap:header message="tns:UpdatePersonTrustLevelRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:UpdatePersonTrustLevelRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:UpdatePersonTrustLevelRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:UpdatePersonTrustLevelRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PersonManager">
+    <wsdl:port name="BasicHttpBinding_IPersonManager" binding="tns:BasicHttpBinding_IPersonManager">
+      <soap:address location="https://hvprodr4xapi.navitaire.com/PersonManager.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

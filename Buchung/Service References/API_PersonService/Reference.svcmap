@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e5c75605-ac9a-4ad8-92f0-b6b4468c317d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://hvprodr4xapi.navitaire.com/PersonManager.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PersonManager.xsd" MetadataType="Schema" ID="41bd7c21-e310-417e-bb4a-a91fc3e530f8" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd8" />
+    <MetadataFile FileName="PersonManager1.xsd" MetadataType="Schema" ID="20921c78-8d4c-4041-b0b8-ec6dea933f6c" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd9" />
+    <MetadataFile FileName="PersonManager2.xsd" MetadataType="Schema" ID="971270ab-e5a9-48c2-8ccb-f233619942cd" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd10" />
+    <MetadataFile FileName="PersonManager.wsdl" MetadataType="Wsdl" ID="3fccdb21-0205-4bc9-a254-8033011d70b9" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/PersonManager.svc?wsdl" />
+    <MetadataFile FileName="PersonManager.disco" MetadataType="Disco" ID="805fe7e6-0688-4baf-8b0f-f2f4067449da" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/PersonManager.svc?disco" />
+    <MetadataFile FileName="PersonManager3.xsd" MetadataType="Schema" ID="89efd07e-fe04-4622-abe0-0a62e45400dd" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd4" />
+    <MetadataFile FileName="PersonManager4.xsd" MetadataType="Schema" ID="4e3eb439-3006-42a9-aee8-5581880325a8" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd5" />
+    <MetadataFile FileName="PersonManager5.xsd" MetadataType="Schema" ID="02f04726-d272-4e19-8e99-dc82c550a1b8" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd6" />
+    <MetadataFile FileName="PersonManager6.xsd" MetadataType="Schema" ID="840e68b4-bb60-44d7-b5d7-f7e2d2ddbb7a" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd7" />
+    <MetadataFile FileName="PersonManager7.xsd" MetadataType="Schema" ID="d8790197-3e0e-4a50-9fd1-88988fb2474d" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd0" />
+    <MetadataFile FileName="PersonManager8.xsd" MetadataType="Schema" ID="9a1b4ae7-6765-43d7-a835-d92f817e96eb" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd1" />
+    <MetadataFile FileName="PersonManager9.xsd" MetadataType="Schema" ID="b93faac8-4758-44ff-af57-b9663f26a7ee" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd2" />
+    <MetadataFile FileName="PersonManager10.xsd" MetadataType="Schema" ID="58eb1059-85fd-418f-89d9-82c4fd0c07c3" SourceId="1" SourceUrl="https://hvprodr4xapi.navitaire.com/PersonManager.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" elementFormDefault="qualified" targetNamespace="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://hvprodr4xapi.navitaire.com/QueueManager.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="OSISeverity">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="General" />
+      <xs:enumeration value="Warning" />
+      <xs:enumeration value="Critical" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OSISeverity" nillable="true" type="tns:OSISeverity" />
+  <xs:simpleType name="MessageState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="New" />
+      <xs:enumeration value="Clean" />
+      <xs:enumeration value="Modified" />
+      <xs:enumeration value="Deleted" />
+      <xs:enumeration value="Confirmed" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MessageState" nillable="true" type="tns:MessageState" />
+  <xs:simpleType name="VoucherTransactionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Debit" />
+      <xs:enumeration value="Credit" />
+      <xs:enumeration value="Void" />
+      <xs:enumeration value="Reinstate" />
+      <xs:enumeration value="Adjustment" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="VoucherTransactionType" nillable="true" type="tns:VoucherTransactionType" />
+  <xs:simpleType name="VoucherType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Credit" />
+      <xs:enumeration value="SingleUseCredit" />
+      <xs:enumeration value="Service" />
+      <xs:enumeration value="SingleUse" />
+      <xs:enumeration value="MultiUse" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="VoucherType" nillable="true" type="tns:VoucherType" />
+  <xs:simpleType name="VoucherStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Available" />
+      <xs:enumeration value="Redeemed" />
+      <xs:enumeration value="Void" />
+      <xs:enumeration value="Expired" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="VoucherStatus" nillable="true" type="tns:VoucherStatus" />
+  <xs:simpleType name="BookingQueueCallStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Free" />
+      <xs:enumeration value="InProgess" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BookingQueueCallStatus" nillable="true" type="tns:BookingQueueCallStatus" />
+  <xs:simpleType name="QueueEventType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="BookingBalanceDue" />
+      <xs:enumeration value="BookingNegativeBalance" />
+      <xs:enumeration value="BookingCustomerComment" />
+      <xs:enumeration value="DeclinedPaymentInitial" />
+      <xs:enumeration value="DeclinedPaymentChange" />
+      <xs:enumeration value="FareOverride" />
+      <xs:enumeration value="ScheduleTimeChange" />
+      <xs:enumeration value="ScheduleTimeChangeMisconnect" />
+      <xs:enumeration value="ScheduleCancellation" />
+      <xs:enumeration value="FlightDesignatorChange" />
+      <xs:enumeration value="ReaccommodationMove" />
+      <xs:enumeration value="GDSCancelWithPendingPayment" />
+      <xs:enumeration value="InvalidPriceStatusOverride" />
+      <xs:enumeration value="FareRestrictionOverride" />
+      <xs:enumeration value="HeldBookings" />
+      <xs:enumeration value="InvalidPriceStatus" />
+      <xs:enumeration value="Watchlist" />
+      <xs:enumeration value="NonFlightServiceFee" />
+      <xs:enumeration value="NotAllTicketNumbersReceived" />
+      <xs:enumeration value="BookingSegmentOversold" />
+      <xs:enumeration value="ReaccommodationCancel" />
+      <xs:enumeration value="ExternalSSRAutoConfirmed" />
+      <xs:enumeration value="OpCarrierSegUpdate" />
+      <xs:enumeration value="OpCarrierSSRUpdate" />
+      <xs:enumeration value="OpCarrierOtherUpdate" />
+      <xs:enumeration value="NameChangeNotAllowed" />
+      <xs:enumeration value="InboundASCNotProcessed" />
+      <xs:enumeration value="OpCarrierInformationChange" />
+      <xs:enumeration value="BookingComponentUpdate" />
+      <xs:enumeration value="GroupBookings" />
+      <xs:enumeration value="BankDirectPNROutOfBalance" />
+      <xs:enumeration value="NoSeatAssigned" />
+      <xs:enumeration value="SeatNumberChange" />
+      <xs:enumeration value="SSRNotSupportedOnNewSeat" />
+      <xs:enumeration value="FewerSeatPreferencesMetOnNewSeat" />
+      <xs:enumeration value="AOSUnableToConfirmCancel" />
+      <xs:enumeration value="ETicketIssue" />
+      <xs:enumeration value="ETicketFollowup" />
+      <xs:enumeration value="InvoluntaryFlyAhead" />
+      <xs:enumeration value="ManualClearanceOnOutage" />
+      <xs:enumeration value="UnbalancedPoints" />
+      <xs:enumeration value="VoluntaryFlightChange" />
+      <xs:enumeration value="InvoluntaryFlightChange" />
+      <xs:enumeration value="OpCarrierTimeChange" />
+      <xs:enumeration value="OACarrierTimeChange" />
+      <xs:enumeration value="MustBeSeatGroupViolation" />
+      <xs:enumeration value="HoldCancellationFailed" />
+      <xs:enumeration value="ItineraryIntegrity" />
+      <xs:enumeration value="ScheduleTimeChangeWithDynamicQueueCode" />
+      <xs:enumeration value="ReaccommodationMoveWithDynamicQueueCode" />
+      <xs:enumeration value="ReducePartyNotProcessed" />
+      <xs:enumeration value="CheckedPassengerUpdate" />
+      <xs:enumeration value="NameChangeWithinRule" />
+      <xs:enumeration value="IncompletePassengerEMDCoupon" />
+      <xs:enumeration value="ASVCUpdateFailed" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="QueueEventType" nillable="true" type="tns:QueueEventType" />
+  <xs:simpleType name="QueueRestriction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Restricted" />
+      <xs:enumeration value="AddAllowedOnly" />
+      <xs:enumeration value="Allowed" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="QueueRestriction" nillable="true" type="tns:QueueRestriction" />
+  <xs:simpleType name="ProcessStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ready" />
+      <xs:enumeration value="Pending" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ProcessStatus" nillable="true" type="tns:ProcessStatus" />
+  <xs:simpleType name="LegStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal" />
+      <xs:enumeration value="Closed" />
+      <xs:enumeration value="Canceled" />
+      <xs:enumeration value="Suspended" />
+      <xs:enumeration value="ClosedPending" />
+      <xs:enumeration value="BlockAllActivities" />
+      <xs:enumeration value="Mishap" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LegStatus" nillable="true" type="tns:LegStatus" />
+  <xs:simpleType name="OpTimeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ActualTouchDownTime" />
+      <xs:enumeration value="ActualOnBlockTime" />
+      <xs:enumeration value="ActualOffBlockTime" />
+      <xs:enumeration value="AirborneTime" />
+      <xs:enumeration value="CrewReportTime" />
+      <xs:enumeration value="EstimatedTouchDownTime" />
+      <xs:enumeration value="EstimatedOnBlockTime" />
+      <xs:enumeration value="EstimatedDepartureTime" />
+      <xs:enumeration value="EstimatedTakeOffTime" />
+      <xs:enumeration value="ForcedTouchDownTime" />
+      <xs:enumeration value="ForcedReturnOnBlockTime" />
+      <xs:enumeration value="MovementAfterPushBackTime" />
+      <xs:enumeration value="NextInformationTime" />
+      <xs:enumeration value="ReclearanceTime" />
+      <xs:enumeration value="ReturnToRampTime" />
+      <xs:enumeration value="ScheduledDepartureTime" />
+      <xs:enumeration value="ScheduledArrivalTime" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OpTimeType" nillable="true" type="tns:OpTimeType" />
+  <xs:simpleType name="ArrivalStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Cancelled" />
+      <xs:enumeration value="Arrived" />
+      <xs:enumeration value="SeeAgent" />
+      <xs:enumeration value="Delayed" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ArrivalStatus" nillable="true" type="tns:ArrivalStatus" />
+  <xs:simpleType name="DepartureStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Cancelled" />
+      <xs:enumeration value="Boarding" />
+      <xs:enumeration value="SeeAgent" />
+      <xs:enumeration value="Delayed" />
+      <xs:enumeration value="Departed" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DepartureStatus" nillable="true" type="tns:DepartureStatus" />
+</xs:schema>
